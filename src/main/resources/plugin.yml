@@ -1,0 +1,6 @@
+name: TerraConvert
+version: ${project.version}
+main: io.github.btesouthasia.terraconvert.TerraConvert
+depend: [DiscordSRV]
+authors: [XboxBedrock]
+description: a simple plugin for a minecraft and discord lat lon to mc and vice versa
