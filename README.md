@@ -1,2 +1,2 @@
 # terraconvert 
-dosent work yet
+works but horribly

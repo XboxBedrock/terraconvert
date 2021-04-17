@@ -8,7 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class TerraConvert extends JavaPlugin {
 
-    public MessageEvent messageEventtoSub = new MessageEvent();
+    public static MessageEvent messageEvent = new MessageEvent();
+
+    public DiscordReady discordReady = new DiscordReady(this);
 
     static TerraConvert instance;
 
@@ -33,15 +35,12 @@ public final class TerraConvert extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
-        //DiscordSRV.api.subscribe(new MessageEvent());
-        if (DiscordSRV.isReady) {
-            DiscordUtil.getJda().addEventListener(messageEventtoSub);
-        }
+        DiscordSRV.api.subscribe(discordReady);
 
     }
 
     @Override
     public void onDisable() {
-        DiscordUtil.getJda().removeEventListener(messageEventtoSub);
+        DiscordSRV.api.unsubscribe(discordReady);
     }
 }
